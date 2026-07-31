@@ -1,0 +1,382 @@
+/* ==========================================================================
+   Card Catalog Notes — Design System
+   Palette: deep catalog navy, brass accent, index-card paper
+   Type: Lora (serif, warmth/handwriting) + JetBrains Mono (stamps/meta)
+   Signature: notes rendered as library index cards with a punched tab
+   ========================================================================== */
+
+:root {
+    --navy-deep: #16223f;
+    --navy-mid: #1f2f52;
+    --paper: #f6f2e7;
+    --paper-line: #d8cdb0;
+    --brass: #c9a227;
+    --brass-dark: #96751b;
+    --ink: #1c2333;
+    --ink-soft: #4d5468;
+    --danger: #a4402f;
+    --success-bg: #223a2b;
+    --success-text: #a9d6b4;
+    --error-bg: #3a2323;
+    --error-text: #e3a79c;
+
+    --font-display: "Lora", Georgia, serif;
+    --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background-color: var(--navy-deep);
+    background-image:
+        radial-gradient(circle at 20% 10%, rgba(201, 162, 39, 0.06), transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(201, 162, 39, 0.05), transparent 45%);
+    color: var(--paper);
+    font-family: var(--font-display);
+    line-height: 1.5;
+}
+
+a { color: var(--brass); }
+a:hover { color: #e0be4a; }
+
+/* ---------- Header ---------- */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid rgba(201, 162, 39, 0.25);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--paper);
+    font-family: var(--font-mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+}
+
+.brand-mark {
+    color: var(--brass);
+    font-size: 1.2rem;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--paper-line);
+}
+
+.nav-link {
+    text-decoration: none;
+    border: 1px solid rgba(201, 162, 39, 0.4);
+    padding: 0.35rem 0.8rem;
+    border-radius: 2px;
+    color: var(--brass);
+}
+.nav-link:hover { background: rgba(201, 162, 39, 0.12); }
+
+/* ---------- Layout ---------- */
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+}
+
+.site-footer {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: rgba(246, 242, 231, 0.35);
+    padding: 2rem 0;
+    text-transform: uppercase;
+}
+
+/* ---------- Flash messages ---------- */
+.flash-stack {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.flash {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    padding: 0.7rem 1rem;
+    border-radius: 3px;
+    border-left: 3px solid;
+}
+
+.flash-success {
+    background: var(--success-bg);
+    color: var(--success-text);
+    border-color: #4f9a63;
+}
+
+.flash-error {
+    background: var(--error-bg);
+    color: var(--error-text);
+    border-color: var(--danger);
+}
+
+/* ---------- Index card (signature element) ---------- */
+.index-card {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 2px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 1px 0 rgba(255,255,255,0.4) inset;
+    padding: 2.25rem 2rem 2rem;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 1.7rem,
+        var(--paper-line) 1.7rem,
+        var(--paper-line) calc(1.7rem + 1px)
+    );
+}
+
+.card-tab {
+    position: absolute;
+    top: -0.9rem;
+    left: 1.5rem;
+    background: var(--brass);
+    color: var(--navy-deep);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 0.28rem 0.7rem;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* ---------- Auth cards ---------- */
+.auth-wrap {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+}
+
+.card-title {
+    margin: 0.4rem 0 0.15rem;
+    font-size: 1.6rem;
+}
+
+.card-subtitle {
+    margin: 0 0 1.5rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+}
+
+.card-footnote {
+    margin-top: 1.4rem;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+}
+
+/* ---------- Forms ---------- */
+.stack-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-bottom: 0.3rem;
+    margin-top: 1rem;
+}
+
+.field-label:first-of-type { margin-top: 0; }
+
+.field-input {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    padding: 0.55rem 0.6rem;
+    border: none;
+    border-bottom: 2px solid var(--navy-mid);
+    background: transparent;
+    color: var(--ink);
+    outline: none;
+}
+
+.field-input:focus {
+    border-bottom-color: var(--brass-dark);
+}
+
+.field-textarea {
+    resize: vertical;
+    line-height: 1.7rem;
+    font-family: var(--font-display);
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    align-items: center;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    padding: 0.6rem 1.1rem;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--navy-deep);
+    color: var(--brass);
+    border: 1px solid var(--brass-dark);
+    margin-top: 1.6rem;
+}
+.btn-primary:hover { background: var(--navy-mid); color: #e0be4a; }
+
+.btn-ghost {
+    background: transparent;
+    color: var(--ink-soft);
+    border: 1px solid var(--paper-line);
+}
+.btn-ghost:hover { border-color: var(--ink-soft); color: var(--ink); }
+
+.btn-danger {
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+.btn-danger:hover { background: rgba(164, 64, 47, 0.1); }
+
+/* ---------- Dashboard ---------- */
+.dashboard-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--brass);
+    margin: 0 0 0.3rem;
+}
+
+.page-title {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--paper);
+}
+
+.dashboard-head .btn-primary { margin-top: 0; }
+
+.empty-state {
+    text-align: center;
+    padding: 3.5rem 1rem;
+    color: var(--paper-line);
+    border: 1px dashed rgba(201, 162, 39, 0.35);
+    border-radius: 3px;
+}
+
+.empty-mark {
+    font-family: var(--font-mono);
+    color: var(--brass);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem 1.5rem;
+}
+
+.note-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+}
+
+.note-title {
+    margin: 0.3rem 0 0.6rem;
+    font-size: 1.2rem;
+}
+
+.note-content {
+    flex-grow: 1;
+    color: var(--ink);
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    margin: 0 0 1rem;
+}
+
+.note-meta {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.9rem;
+}
+
+.note-actions {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.note-actions form { margin: 0; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    .site-header { padding: 1rem 1.25rem; }
+    .container { padding: 1.75rem 1rem 3rem; }
+    .index-card { padding: 2rem 1.25rem 1.5rem; }
+    .card-grid { grid-template-columns: 1fr; }
+    .page-title { font-size: 1.6rem; }
+}
+
+/* ---------- Accessibility: visible focus ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+}

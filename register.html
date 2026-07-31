@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Register · Card Catalog{% endblock %}
+{% block content %}
+<div class="auth-wrap">
+    <div class="index-card auth-card">
+        <div class="card-tab">NEW&nbsp;ENTRY</div>
+        <h1 class="card-title">Create an account</h1>
+        <p class="card-subtitle">Get your own drawer in the catalog.</p>
+
+        <form method="POST" class="stack-form">
+            <label class="field-label" for="username">Username</label>
+            <input class="field-input" type="text" id="username" name="username" minlength="3" required autofocus>
+
+            <label class="field-label" for="password">Password</label>
+            <input class="field-input" type="password" id="password" name="password" minlength="6" required>
+
+            <label class="field-label" for="confirm_password">Confirm password</label>
+            <input class="field-input" type="password" id="confirm_password" name="confirm_password" minlength="6" required>
+
+            <button type="submit" class="btn btn-primary">Create account</button>
+        </form>
+
+        <p class="card-footnote">Already registered? <a href="{{ url_for('login') }}">Log in</a>.</p>
+    </div>
+</div>
+{% endblock %}

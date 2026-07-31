@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Log In · Card Catalog{% endblock %}
+{% block content %}
+<div class="auth-wrap">
+    <div class="index-card auth-card">
+        <div class="card-tab">LOG&nbsp;IN</div>
+        <h1 class="card-title">Welcome back</h1>
+        <p class="card-subtitle">Sign in to reach your notes.</p>
+
+        <form method="POST" class="stack-form">
+            <label class="field-label" for="username">Username</label>
+            <input class="field-input" type="text" id="username" name="username" required autofocus>
+
+            <label class="field-label" for="password">Password</label>
+            <input class="field-input" type="password" id="password" name="password" required>
+
+            <button type="submit" class="btn btn-primary">Log in</button>
+        </form>
+
+        <p class="card-footnote">No account yet? <a href="{{ url_for('register') }}">Register here</a>.</p>
+    </div>
+</div>
+{% endblock %}
